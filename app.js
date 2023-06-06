@@ -22,6 +22,7 @@ app.get("/api/movies/:id", movieHandlers.getMovieById);
 const usersHandlers = require("./usersHandlers");
 
 app.get("/api/users", usersHandlers.getUsers);
+app.post("/api/users", usersHandlers.postUsers);
 app.get("/api/users/:id", usersHandlers.getUsersById);
 
 app.listen(port, (err) => {

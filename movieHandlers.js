@@ -40,7 +40,7 @@ const postMovie = (req, res) => {
     )
     .then(([result]) => {
       res.location(`/api/movies/${result.insertId}`).sendStatus(201);
-      console.log("Les patattes c'est trop chouette !!!", result);
+      console.log("Resultat de la query post sur MOVIES", result);
     })
     .catch((err) => {
       console.error(err);
