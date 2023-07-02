@@ -41,7 +41,10 @@ const getUserById = (req, res) => {
   const id = parseInt(req.params.id);
 
   database
-    .query("SELECT * FROM users WHERE id = ?", [id])
+    .query(
+      "SELECT firstname, lastname, email, city, language FROM users WHERE id = ?",
+      [id]
+    )
     .then(([users]) => {
       if (users[0] != null) {
         res.json(users[0]);
