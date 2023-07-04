@@ -31,6 +31,16 @@ app.post("/api/users", validateUser, hashPassword, userHandlers.postUser);
 app.put("/api/users/:id", validateUser, hashPassword, userHandlers.updateUser);
 app.delete("/api/users/:id", userHandlers.deleteUser);
 
+const verifyPassword = (req, res) => {
+  res.send(req.user);
+};
+
+app.post(
+  "/api/login",
+  userHandlers.getUserByEmailWithPasswordAndPassToNext,
+  verifyPassword
+);
+
 app.listen(port, (err) => {
   if (err) {
     console.error("Something bad happened");
